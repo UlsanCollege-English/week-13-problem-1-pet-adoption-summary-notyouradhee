@@ -1,14 +1,14 @@
 {
   "tests": [
     {
-      "name": "Run pytest",
+      "name": "run-pytest",
       "setup": "",
       "run": "pytest tests/test_hw01.py -v",
       "input": "",
       "output": "",
       "comparison": "included",
       "timeout": 10,
-      "points": null
+      "points": 100
     }
   ]
 }
