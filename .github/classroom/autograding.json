@@ -3,7 +3,7 @@
     {
       "name": "Run pytest",
       "setup": "",
-      "run": "pytest",
+      "run": "pytest tests/test_hw01.py -v",
       "input": "",
       "output": "",
       "comparison": "included",
