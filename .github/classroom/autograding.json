@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Run pytest",
+      "setup": "",
+      "run": "pytest",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    }
+  ]
+}
