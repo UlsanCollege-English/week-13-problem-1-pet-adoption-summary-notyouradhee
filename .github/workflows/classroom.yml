@@ -23,9 +23,18 @@ jobs:
         pip install pytest
     - name: Run tests
       id: tests
+      continue-on-error: true
       run: |
-        pytest tests/test_hw01.py -v
+        pytest tests/test_hw01.py -v --tb=short > test_output.txt 2>&1
+        TEST_EXIT_CODE=$?
+        if [ $TEST_EXIT_CODE -eq 0 ]; then
+          echo "result={\"version\":1,\"status\":\"pass\",\"tests\":[]}" >> $GITHUB_OUTPUT
+        else
+          echo "result={\"version\":1,\"status\":\"fail\",\"tests\":[]}" >> $GITHUB_OUTPUT
+        fi
+        exit $TEST_EXIT_CODE
     - name: Autograding Reporter
+      if: always()
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         TESTS_RESULTS: "${{steps.tests.outputs.result}}"
